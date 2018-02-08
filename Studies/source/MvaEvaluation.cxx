@@ -237,6 +237,7 @@ public:
                             ChannelSampleIdSpin id_ch_bkg_spin{args.channel(), bkg, parameter};
 
                             MvaReader::MvaKey key{args.method_name(), mass, parameter};
+                            event.weight_total = eventbase->weight_total*entry.weight/mergesummary.totalShapeWeight;
                             double eval = reader.Evaluate(key, &eventbase);
 
                             data[id_ch_sample_spin][which_set].push_back(eval);
